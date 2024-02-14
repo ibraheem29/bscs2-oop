@@ -81,21 +81,56 @@ public:
     }
 };
 
+class disk:public publication,public sales{
+	private: 
+	string diskType;
+	public:
+		void getdata(){
+			cout<<"enter disk type "<<endl<<"1. press c for cd type "<<endl<<"2. press d for dvd type"<<endl;
+			cin>>diskType;
+			publication::getdata();
+			sales::getdata();
+			
+		}
+		void putdata(){
+			if(diskType=="c"){
+				cout<<"it is CD type "<<endl;
+			
+			}
+			else if(diskType=="d"){
+				cout<<"it is DVD type "<<endl;
+			}
+			else {
+				cout<<"wrong input"<<endl;	
+			}
+			publication::putdata();
+			sales::putdata();
+		}
+	
+};
+
 int main() {
     book book1;
     tape tape1;
+    disk disk1;
 
     cout << "\nEnter book data:" << endl;
     book1.getdata();
 
     cout << "\nEnter tape data:" << endl;
     tape1.getdata();
-
+    
+    cout << "\nEnter disk data:" << endl;
+    disk1.getdata();
+    
     cout << "\nBook data:" << endl;
     book1.putdata();
 
     cout << "\nTape data:" << endl;
     tape1.putdata();
+    
+    cout<<" disk data: "<<endl;
+    disk1.putdata();
 
     return 0;
 }
